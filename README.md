@@ -6,22 +6,24 @@ Adds [CropperJS](https://fengyuanchen.github.io/cropperjs/)'s functionality to i
 
 ### Quick start
 
-1. Add "cropperjs" to your INSTALLED_APPS setting like this::
+1. Add "cropperjs" to your INSTALLED_APPS setting like this:
 
-    ```
+
+```
     INSTALLED_APPS = [
         ... 
         'cropperjs',
     ]
-    ```
+```
 
 2. Change/set your model's image fields to use CropperImageField instead of ImageField.
 
-    ```
+
+```
     from cropperjs.models import CropperImageField
 
     image_field = CropperImageField()
-    ```
+```
     
     
 ### Field options

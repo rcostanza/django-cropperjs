@@ -1,0 +1,3 @@
+recursive-include cropperjs/locale *
+recursive-include cropperjs/static *
+recursive-include cropperjs/templates *

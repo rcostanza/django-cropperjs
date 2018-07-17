@@ -1,0 +1,32 @@
+{% load i18n %}
+
+<div class="cropperImageField {% if widget.attrs.linked %}linked{% endif %}" id="cropperImageField_{{ widget.name }}"
+    data-label="{{ widget.attrs.label }}"
+    {% if widget.required %}data-required="true"{% endif %}
+    {% if widget.attrs.dimensions %}data-dimensions="{{ widget.attrs.dimensions|join:"," }}"{% endif %}
+    {% if widget.attrs.aspectratio %}data-aspectratio="{{ widget.attrs.aspectratio }}"{% endif %}>
+
+    <input type="hidden" name="{{ widget.name }}" id="id_{{ widget.name }}" {% if widget.value %}value="{{ widget.value }}"{% endif %} />
+    <img {% if widget.value %}src="{{ widget.value }}"{% endif %} />
+    <div class="placeholder">{% trans "Select image" %}</div>
+    <a class="deleteImage" href="javascript:;">{% trans "Remove" %}</a>
+</div>
+
+<script>
+    if(typeof(_cropper_messages) === "undefined") {
+        _cropper_messages = {
+            'Crop for': "{% trans "Crop for" %}",
+            'Redefine': "{% trans "Redefine" %}",
+            'Rotate (clockwise)': "{% trans "Rotate (clockwise)" %}",
+            'Rotate (counterclockwise)': "{% trans "Rotate (counterclockwise)" %}",
+            'Limit dimensions': "{% trans "Limit dimensions" %}",
+            'Automatically limits the image\'s dimensions': "{% trans "Automatically limits the image's dimensions" %}",
+            'Cancel': "{% trans "Cancel" %}",
+            'Save image': "{% trans "Save image" %}",
+            'Preview': "{% trans "Preview" %}",
+            'File above the size limit': "{% trans "File above the size limit" %}",
+            'Invalid image file': "{% trans "Invalid image file" %}",
+            'Selected image ({source_image_size}) is smaller than the recommended size ({fixed_image_size}). Loss of quality may occur.': "{% blocktrans with source_image_size="{source_image_size}" fixed_image_size="{fixed_image_size}" %}Selected image ({{ source_image_size }}) is smaller than the recommended size ({{ fixed_image_size }}). Loss of quality may occur.{% endblocktrans %}"
+        }
+    }
+</script>

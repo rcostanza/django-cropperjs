@@ -2,7 +2,7 @@
 
 Adds [CropperJS](https://fengyuanchen.github.io/cropperjs/)'s functionality to image fields in Django/Django CMS admin, including inlines.
 
-`CropperImageFields` is a subclass from `ImageField`, and so can be interchanged in your existing base without data loss.
+`CropperImageField` is a subclass from `ImageField`, and so can be interchanged in your existing base without data loss.
 
 ### Quick start
 

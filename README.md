@@ -1,12 +1,12 @@
 # django-cropperjs
 
-Adds [CropperJS](https://fengyuanchen.github.io/cropperjs/)'s functionality to image fields in Django/Django CMS admin (but not elsewhere, sorry).
+Adds [CropperJS](https://fengyuanchen.github.io/cropperjs/)'s functionality to image fields in Django/Django CMS admin, including inlines.
 
 `CropperImageFields` is a subclass from `ImageField`, and so can be interchanged in your existing base without data loss.
 
 ### Quick start
 
-1. Add "cropperjs" to your INSTALLED_APPS setting like this:
+- Add "cropperjs" to your INSTALLED_APPS setting like this:
 
 
 ```
@@ -16,13 +16,13 @@ Adds [CropperJS](https://fengyuanchen.github.io/cropperjs/)'s functionality to i
     ]
 ```
 
-2. Change/set your model's image fields to use CropperImageField instead of ImageField.
+- Change/set your model's image field to use CropperImageField instead of ImageField.
 
 
 ```
     from cropperjs.models import CropperImageField
 
-    image_field = CropperImageField()
+    image_field = CropperImageField(...)
 ```
     
     

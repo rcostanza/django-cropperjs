@@ -158,6 +158,8 @@
 
 #cropper_limit_dimensions {
     height: 32px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 label[for='cropper_limit_dimensions'] {

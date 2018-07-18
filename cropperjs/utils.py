@@ -1,10 +1,13 @@
 # coding=utf-8
 
-import re
+import re, sys
 from base64 import b64decode
 
 from django.core.files.base import ContentFile
 
+# Used for consistent string/type comparisons across Python 2 and 3
+# without requiring six, future or other external dependencies
+TEXT_TYPE = str if sys.version_info[0] >= 3 else unicode
 
 def cropperImageFile(base64data, defaultName):
     try:

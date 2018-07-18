@@ -2,7 +2,7 @@
 
 from django import forms
 from .widgets import CropperWidget
-from .utils import cropperImageFile
+from .utils import cropperImageFile, TEXT_TYPE
 
 class CropperImageFormField(forms.ImageField):
     widget = CropperWidget
@@ -27,7 +27,7 @@ class CropperImageFormField(forms.ImageField):
 
         if self.has_changed(initial, data):
 
-            if data is None or data == "":
+            if data is None or len(data) == 0:
                 if self.required:
                     raise forms.ValidationError(self.error_messages['required'])
                 else:
@@ -35,7 +35,7 @@ class CropperImageFormField(forms.ImageField):
 
             else:
                 try:
-                    contentFile = cropperImageFile(data, "imagem")
+                    contentFile = cropperImageFile(data, "image")
                     return contentFile
                 except ValueError:
                     raise forms.ValidationError(self.default_error_messages['invalid_image'])
@@ -49,9 +49,9 @@ class CropperImageFormField(forms.ImageField):
             # If data is empty and initial exists, field has changed
             return initial != None
         else:
-            if isinstance(data, unicode) and data[0] == "/":
+            if isinstance(data, TEXT_TYPE) and data[0] == "/":
                 # If data is an url, field has changed if url is different than the initial value's url
-                return initial.url != str(data)
+                return str(initial.url) != str(data)
             else:
                 # Otherwise, assumes it's a ContentFile and therefore field has changed
                 return True

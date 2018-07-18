@@ -16,7 +16,7 @@ class CropperImageFormField(forms.ImageField):
         attrs = super(CropperImageFormField, self).widget_attrs(widget)
         attrs.update({
             'label': self.label,
-            'aspectratio': self.aspectratio,
+            'aspectratio': str(self.aspectratio).replace(",", ".") if self.aspectratio else "",
             'dimensions': self.dimensions,
             'linked': self.linked,
         })

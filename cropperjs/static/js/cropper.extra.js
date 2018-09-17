@@ -220,7 +220,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
-        var dataUrl = croppedCanvas.toDataURL(null, 0.9);
+        var mimeType = $cropperFileUpload[0].files[0].type,
+            dataUrl = croppedCanvas.toDataURL(mimeType, 0.8);
 
         setPreview($currentEditor, dataUrl);
         $("input", $currentEditor).val("filename:" + currentFileName +";" + dataUrl);

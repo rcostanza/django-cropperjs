@@ -8,7 +8,7 @@ class CropperWidget(ClearableFileInput):
 
     def value_from_datadict(self, data, files, name):
         filedata = data[name]
-        return filedata if filedata and str(filedata) != "" else None
+        return filedata if filedata and filedata != "" else None
 
     def format_value(self, value):
         # Value will be either the URL/base64 string from an unchanged field,

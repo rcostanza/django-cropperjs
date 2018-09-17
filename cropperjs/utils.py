@@ -1,9 +1,10 @@
 # coding=utf-8
 
-import re, sys
+import sys
 from base64 import b64decode
 
 from django.core.files.base import ContentFile
+from django.utils.text import slugify
 
 # Used for consistent string/type comparisons across Python 2 and 3
 # without requiring six, future or other external dependencies
@@ -18,7 +19,7 @@ def cropperImageFile(base64data, defaultName):
         raise ValueError
     if 'filename' in metadata:
         filename = metadata.split(";")[0].split(":")[1]
-        filename = re.sub("[^a-zA-Z0-9]", "", filename.lower())
+        filename = slugify(filename)
     else:
         filename = defaultName
     fileext = mimetype.split("/")[1]

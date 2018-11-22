@@ -8,13 +8,17 @@
     height: 100vh;
     z-index: 1080;
     background: rgba(0,0,0, 0.5);
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #cropper_modal .modal-dialog {
-    position: relative;
-    width: 900px;
-    margin-top: 30px;
-    left: 25%;
+
+    max-width: 60vw;
+    max-height: 95vh;
+
     border: 1px solid black;
     border-radius: 10px;
     background: white;
@@ -33,10 +37,16 @@
     height: 27px;
 }
 
-#cropper_image { width: 50vw; height: 40vh; margin: 0px; padding: 0px; }
+#cropper_image {
+    min-width: 50vw;
+    height: 40vh;
+    margin: 0px;
+    padding: 0px;
+}
 
 .preview_container {
     height: 200px;
+    max-height: 20vh;
     padding: 20px;
     display: flex;
     margin: 10px auto 10px auto;

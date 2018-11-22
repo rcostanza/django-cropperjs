@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(!hasFixedDimensions) $modal.addClass("can_limit_dimensions");
 
-        $modal.show();
+        $modal.css("display", "flex");
 
         $("#modalLabel").html(_["Crop for"] + " " + $currentEditor.attr("data-label"));
 

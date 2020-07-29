@@ -7,7 +7,7 @@ class CropperWidget(ClearableFileInput):
     template_name = "cropperjs/widgets/cropperjs.html"
 
     def value_from_datadict(self, data, files, name):
-        filedata = data[name]
+        filedata = data.get(name)
         return filedata if filedata and filedata != "" else None
 
     def format_value(self, value):
